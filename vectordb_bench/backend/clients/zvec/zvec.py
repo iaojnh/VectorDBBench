@@ -23,7 +23,7 @@ from .config import ZvecConfig, ZvecHNSWIndexConfig, ZvecIndexConfig
 
 log = logging.getLogger(__name__)
 
-zvec.init(log_level=LogLevel.WARN)
+zvec.init(log_level=LogLevel.WARN, memory_limit_mb=4096)
 
 
 class Zvec(VectorDB):
