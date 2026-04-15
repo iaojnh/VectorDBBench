@@ -84,7 +84,7 @@ class Zvec(VectorDB):
             ],
         )
 
-        self.option = CollectionOption(read_only=False, enable_mmap=True)
+        self.option = CollectionOption(read_only=False, enable_mmap=False)
 
         self.query_param = Zvec._parse_query_param(db_case_config)
 
@@ -156,7 +156,7 @@ class Zvec(VectorDB):
         self.collection.optimize(option=OptimizeOption())
 
     def prepare_filter(self, filters: Filter):
-        self.option = CollectionOption(read_only=True, enable_mmap=True)
+        self.option = CollectionOption(read_only=True, enable_mmap=False)
         log.debug("set readonly: %s", self.option.read_only)
 
         if filters.type == FilterOp.NonFilter:
